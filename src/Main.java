@@ -7,5 +7,17 @@ public class Main {
         int b = 4;
         System.out.println("");
 
+
+
+
+
+        System.out.println("test test 22");
+
+        int n = 1000;
+
+        System.out.println(n);
+
+
+
     }
 }
