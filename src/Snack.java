@@ -29,7 +29,7 @@ class Window extends JFrame {
         //заголовок
 
         //размеры окна
-        setBounds(0, 0, 300, 300);
+        setBounds(0, 0, 1024, 768);
 
         //после закрытия окна - программа освобождает ресурсы
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,6 +44,8 @@ class Field extends JPanel {
 
     //таймер для обычной перерисовки панели
     Timer tmDraw;
+
+    Logic logic = new Logic();
 
     //Конструктор вызывается в момент создания объекта поле
     public Field() {
@@ -70,16 +72,30 @@ class Field extends JPanel {
         super.paintComponent(g);
 
         //заливаем фон (белый квадрат 600x600)
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, 600, 600);
+        g.setColor(Color.GRAY);
+        g.setColor(new Color(47, 100, 56));
+        g.fillRect(0, 0, 1024, 768);
 
         //установить цвет
         g.setColor(Color.CYAN);
+        g.setColor(new Color(0, 0, 0));
         //нарисовать одну линию
-        g.drawLine(0, 0, 600, 0);
         //нарисовать вторую линию
-        g.drawLine(0, 20, 600, 20);
+        for (int i = 0; i < 30; i++) {
+
+
+        g.drawLine(0, i*30, 1024, i*30);
+            g.drawLine(i*30, 0, i*30, 768);
+
         //попробуйте нарисовать линию 3 ....
+        }
+
+        for (int i = 0; i < 30; i++) {
+            for (int j = 0; j < 30; j++)
+                g.drawString("" + logic.mass[i][j], (i * 30) + 10, (j * 30) + 10);
+
+
+        }
 
         //далее нарисовать линии через цикл for (сначала по вертикали, а затем по горизонтали)
 
